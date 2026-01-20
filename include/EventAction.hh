@@ -10,12 +10,13 @@ public:
     void EndOfEventAction(const G4Event*) override;
 
     // Called by SteppingAction
-    void AddElasticScatter(double ER, double theta, double Ne);
+    void AddElasticScatter(double ER, double theta, double Ne, int Elastic);
 
 private:
     int    fNscatter;
     double fER;     // total recoil energy
     double fTheta;  // last scatter angle
     double fNe;     // total ionization electrons
+    int fElastic;   // whether the event is elastic
 };
 

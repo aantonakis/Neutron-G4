@@ -18,6 +18,12 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
     delete fGun;
 }
 
+void PrimaryGeneratorAction::SetEnergy(G4double E)
+{
+    fGun->SetParticleEnergy(E);
+}
+
+
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
 {
     fGun->GeneratePrimaryVertex(event);

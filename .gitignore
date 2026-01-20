@@ -1,1 +1,4 @@
+# Build directory
+build/
+
 *.root

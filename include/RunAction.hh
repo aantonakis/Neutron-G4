@@ -9,7 +9,7 @@ public:
     RunAction();
     ~RunAction() override;
 
-    void FillTree(int nscat, double ER, double theta, double Ne);
+    void FillTree(int nscat, double ER, double theta, double Ne, int Elastic);
 
 private:
     TFile* fFile;
@@ -19,5 +19,6 @@ private:
     double t_ER;
     double t_theta;
     double t_Ne;
+    int    t_Elastic;
 };
 

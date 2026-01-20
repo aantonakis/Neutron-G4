@@ -8,6 +8,7 @@ EventAction::EventAction()
     fER = 0.;
     fTheta = 0.;
     fNe = 0.;
+    fElastic = 1;
 }
 
 void EventAction::BeginOfEventAction(const G4Event*)
@@ -16,14 +17,16 @@ void EventAction::BeginOfEventAction(const G4Event*)
     fER = 0.;
     fTheta = 0.;
     fNe = 0.;
+    fElastic = 1;
 }
 
-void EventAction::AddElasticScatter(double ER, double theta, double Ne)
+void EventAction::AddElasticScatter(double ER, double theta, double Ne, int Elastic)
 {
     fNscatter++;
     fER += ER;
     fTheta = theta;
     fNe += Ne;
+    fElastic = Elastic;
 }
 
 void EventAction::EndOfEventAction(const G4Event*)
@@ -34,6 +37,6 @@ void EventAction::EndOfEventAction(const G4Event*)
             G4RunManager::GetRunManager()->GetUserRunAction()));
 
 
-    runAction->FillTree(fNscatter, fER, fTheta, fNe);
+    runAction->FillTree(fNscatter, fER, fTheta, fNe, fElastic);
 }
 
